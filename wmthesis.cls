@@ -127,6 +127,15 @@
 \renewcommand{\cftchapfont}{\normalfont } %no bold in toc
 \renewcommand{\cftchappagefont}{\normalfont } %no bold in toc
 
+%%----------------------------------------------------------------
+% Set Chapters to Appendix when necessary in TOC 
+%%----------------------------------------------------------------
+\g@addto@macro\appendix{%
+  \addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+  }%
+}
+
 %%--Set the pagestyle to headings.
 \pagestyle{headings} % NOTE: need to check
 
@@ -292,7 +301,7 @@
               \hspace{.1in}  \\
               \hspace{.1in}  \\ % 4 lines between prior degrees and purpose statement -- Ruth
           {A \if \@thesis Thesis \else Dissertation \fi presented to the Graduate Faculty
-              of \\William \& Mary in Candidacy for the Degree of\\
+              of \\The College of William and Mary in Virginia in Candidacy for the Degree of\\
               \ifdefined\ThesisType \ThesisType \else Doctor of Philosophy \fi}\\
               \hspace{.1in}  \\
               \hspace{.1in}  \\
@@ -307,7 +316,7 @@
               \hspace{.1in}  \\
               \hspace{.1in}  \\
               \hspace{.1in}  \\ % 5 lines between department and college -- Ruth
-          {William \& Mary\\
+          {The College of William and Mary in Virginia\\
             \thesis@month, \thesis@year}
           }
       \end{center}
@@ -348,11 +357,11 @@
             \hspace{.1in}  \\
             \hspace{.1in}  \\ % 3 lines between statement and signature line -- Ruth
         \underline{\hspace*{\thesisapprovalwidth}}\\
-        {\small \thesis@author}\\
+        {\small \thesis@authorx}\\
             \hspace{.1in}  \\
             \hspace{.1in}  \\
             \hspace{.1in}  \\ % 3 lines between signature line and approved -- Ruth
-        {\large \if \@thesis Approved \else Reviewed \fi by the Committee, \thesis@month~\thesis@year}\\
+        {\large Approved by the Committee, \thesis@month~\thesis@year}\\
             \hspace{.1in}  \\
             \hspace{.1in}  \\ % 2 lines between approved and signature line -- Ruth
         \underline{\hspace*{\thesisapprovalwidth}}\\
@@ -518,7 +527,7 @@
 %%--------------------------------------------
 \newcommand{\makeThesisVita}[1]{
          \newpage
-         \pagestyle{headings}\markright{}
+         % \pagestyle{headings}\markright{}
          \begin{center}
             \addcontentsline{toc}{chapter}{Vita}
            \Large VITA
