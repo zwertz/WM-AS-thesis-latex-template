@@ -75,12 +75,19 @@
 
 % Some very useful LaTeX packages include:
 % (uncomment the ones you want to load)
-% \usepackage{graphicx}
-% \usepackage{color}
-% \usepackage{url}
-% \usepackage{epsfig}
-% \usepackage{epstopdf}
-% \usepackage{verbatim}
+%\usepackage{graphicx}
+%\usepackage[utf8]{inputenc}
+%\usepackage{amsmath}
+%\usepackage{amsfonts}
+%\usepackage{amssymb}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{authblk}
+%\usepackage{epsfig}
+%\usepackage{mathtools}
+%\usepackage{float}
+%\usepackage{tabularx}
+\usepackage[sort&compress,numbers]{natbib}
 
 
 
@@ -115,8 +122,19 @@
 % Not sure if this is still an option -- Ruth
 % Not an issue any more, but I keep this line in case -- Shanhe
 % \usepackage{indentfirst}
+%%Hyperref works best as the last package
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %%false = box, true = text color
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
 
-
+%% Only necessary for draft mode, once final should not need directly below anymore    
+\hypersetup{final}
 
 
 
@@ -214,7 +232,7 @@
 
 
 %%--Include the bibliography
-
+%% Make sure to review the biliography command as defined in the WM Thesis Class, to make sure it is consistent with the style you need. There are some dependencies on the inclusion of the hyperref package and the natbib package.
 \makeThesisBib{thesis}
 
 

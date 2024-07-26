@@ -127,6 +127,17 @@
 \renewcommand{\cftchapfont}{\normalfont } %no bold in toc
 \renewcommand{\cftchappagefont}{\normalfont } %no bold in toc
 
+%% Implemented by Felipe Ortega
+%%----------------------------------------------------------------
+% Set Chapters to Appendix when necessary in TOC 
+%%----------------------------------------------------------------
+\g@addto@macro\appendix{%
+  \addtocontents{toc}{%
+    \protect\renewcommand{\protect\cftchappresnum}{\appendixname\space}%
+  }%
+}
+
+
 %%--Set the pagestyle to headings.
 \pagestyle{headings} % NOTE: need to check
 
@@ -497,11 +508,19 @@
 
 
 %%--Set the bib style
-\def\thesisBibStyle{wmbib}
+%If you want to use WM Bib style uncomment the line below
+%\def\thesisBibStyle{wmbib}
+% WM Bib style changed by Felipe Ortega
+% This alternative WM Bib Style will not automatically sort the reference alphabetically. It also adds the support of the doi field and this is dependent on the hyperref package.
+%\def\thesisBibStyle{wmbib_nosrt_wurl}
 \renewcommand{\bibname}{References} %%--added by Zeke to change name to References
 %%--Define a single command for making the bibliography.
 \newcommand{\makeThesisBib}[1]{
-  \bibliographystyle{\thesisBibStyle}
+  %This command is common for physics and follows APS Revtex 4.2 style
+  %I will assume this as the default, which is maybe not best
+  \bibliographystyle{apsrev4-2_custom}
+   %If you want to use WM Bib style uncomment the line below
+  %\bibliographystyle{\thesisBibStyle}
   \bibliography{#1}}
 
 %%--Redefine the thebibliography environment
@@ -518,7 +537,7 @@
 %%--------------------------------------------
 \newcommand{\makeThesisVita}[1]{
          \newpage
-         \pagestyle{headings}\markright{}
+         %\pagestyle{headings}\markright{}
          \begin{center}
             \addcontentsline{toc}{chapter}{Vita}
            \Large VITA
