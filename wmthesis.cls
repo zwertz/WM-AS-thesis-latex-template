@@ -303,7 +303,7 @@
               \hspace{.1in}  \\
               \hspace{.1in}  \\ % 4 lines between prior degrees and purpose statement -- Ruth
           {A \if \@thesis Thesis \else Dissertation \fi presented to the Graduate Faculty
-              of \\William \& Mary in Candidacy for the Degree of\\
+              of \\The College of William and Mary in Virginia in Candidacy for the Degree of\\
               \ifdefined\ThesisType \ThesisType \else Doctor of Philosophy \fi}\\
               \hspace{.1in}  \\
               \hspace{.1in}  \\
@@ -318,7 +318,7 @@
               \hspace{.1in}  \\
               \hspace{.1in}  \\
               \hspace{.1in}  \\ % 5 lines between department and college -- Ruth
-          {William \& Mary\\
+          {The College of William and Mary in Virginia\\
             \thesis@month, \thesis@year}
           }
       \end{center}
